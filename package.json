@@ -1,0 +1,30 @@
+{
+  "name": "useful-js-ibrary",
+  "version": "1.0.0",
+  "description": "create a collection of useful js function solution",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha index.test.js -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcoTseng/Useful-JS-Function.git"
+  },
+  "keywords": [
+    "useful",
+    "function"
+  ],
+  "author": "Marco Tseng <tseng79622@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarcoTseng/Useful-JS-Function/issues"
+  },
+  "homepage": "https://github.com/MarcoTseng/Useful-JS-Function#readme",
+  "devDependencies": {
+    "chai": "4.2.0",
+    "mocha": "7.1.0"
+  },
+  "dependencies": {
+    "countries-and-timezones": "2.0.5"
+  }
+}
