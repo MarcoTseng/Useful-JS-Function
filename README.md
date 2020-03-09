@@ -5,7 +5,7 @@ This is a simple library contain different kind of useful function.
 ## Install
 
 ```
-npm install --save simple-yolo-library
+npm install --save useful-js-ibrary
 ```
 
 ## API
@@ -15,7 +15,7 @@ npm install --save simple-yolo-library
 **Example**
 
 ```javascript
-const Times = require('simple-yolo-library').Times;
+const Times = require('useful-js-ibrary').Times;
 
 const timezones = Times.get_timezones();
 
@@ -40,7 +40,7 @@ const timezones = Times.get_timezones();
 **Example**
 
 ```javascript
-const Times = require('simple-yolo-library').Times;
+const Times = require('useful-js-ibrary').Times;
 
 const timezones = Times.current_location_time("full",{time_format:"12",separators:"/",order:["mmm","dd","yyyy"]},"Asia/Taipei");
 
