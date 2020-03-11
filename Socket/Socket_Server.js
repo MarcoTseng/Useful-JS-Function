@@ -71,7 +71,7 @@ function Socket_Server(binding) {
                             socket.emit('Conversation', {
                                 type : "Handshake",
                                 from_id : msg.to_id,
-                                message : "-- User is Offline now --"
+                                message : "Offline"
                             });
                         }
                         else
