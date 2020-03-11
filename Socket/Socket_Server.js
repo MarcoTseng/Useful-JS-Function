@@ -58,7 +58,7 @@ function Socket_Server(binding) {
                         // Check user status
                         socket.emit('Conversation', {
                             type : "Handshake",
-                            from_id : SocketID_UserID_Mapping.get(socket.id),
+                            from_id : msg.to_id,
                             message : Current_User_List.hasOwnProperty(msg.to_id) ? "Online" : "Offline" 
                         });
 
@@ -69,8 +69,8 @@ function Socket_Server(binding) {
                         {
                             // offline message
                             socket.emit('Conversation', {
-                                type : "Chat",
-                                from_id : "system",
+                                type : "Handshake",
+                                from_id : msg.to_id,
                                 message : "-- User is Offline now --"
                             });
                         }
@@ -119,6 +119,14 @@ function Socket_Server(binding) {
                             users :  user_list
                         });
                     }
+                    else if(msg.type === "Broadcast")
+                    {
+                        socket.broadcast.emit('Conversation', {
+                            type : "Chat",
+                            from_id : SocketID_UserID_Mapping.get(socket.id),
+                            message : msg.message
+                        });
+                    }
                 }
                 else
                     socket.emit('Initial_data_request', 'Retry - Not Exists User');
@@ -131,8 +139,12 @@ function Socket_Server(binding) {
                 // Clear the data in User and Mapping List
                 if(SocketID_UserID_Mapping.has(socket.id))
                 {
-                    //console.log("Disconnect " + SocketID_UserID_Mapping.get(socket.id));
-                    
+                    socket.broadcast.emit('Conversation', {
+                        type : "Handshake",
+                        from_id : SocketID_UserID_Mapping.get(socket.id),
+                        message : "Offline" 
+                    });
+
                     delete Current_User_List[SocketID_UserID_Mapping.get(socket.id)];
                     
                     SocketID_UserID_Mapping.delete(socket.id);

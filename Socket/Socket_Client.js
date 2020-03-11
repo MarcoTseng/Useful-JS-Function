@@ -89,6 +89,18 @@ Socket_Client.prototype.Chat = function(to_id,message) {
     this.socket.emit('Conversation', Sending_Object);
 }
 
+/* Broadcast Message to All User */
+Socket_Client.prototype.Broadcast = function(message) {
+
+    var Sending_Object = {
+        type : "Broadcast",
+        to_id : "",
+        message : message
+    };
+
+    this.socket.emit('Conversation', Sending_Object);
+}
+
 /* Sending Typing signal to the User */
 Socket_Client.prototype.Typing = function(to_id,message) {
 
@@ -111,6 +123,12 @@ Socket_Client.prototype.Users = function() {
     };
 
     this.socket.emit('Conversation', Sending_Object);
+}
+
+/* Disconnect the connection */
+Socket_Client.prototype.Disconnect = function() {
+
+    this.socket.disconnect();
 }
 
 module.exports = Socket_Client;

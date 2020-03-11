@@ -117,6 +117,13 @@ Socket.Typing('user_id','user is typing');
 
 // Users
 Socket.Users();
+
+// Broadcast
+Socket.Broadcast('Hello World');
+
+// Disconnect
+Socket.Disconnect();
+
 ```
 ##### Receiving
 
